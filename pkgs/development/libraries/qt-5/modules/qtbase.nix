@@ -321,7 +321,7 @@ stdenv.mkDerivation {
 
           "-libinput"
 
-          "-no-eglfs"
+          #"-no-eglfs"
           "-no-gbm"
           "-no-kms"
           "-no-linuxfb"

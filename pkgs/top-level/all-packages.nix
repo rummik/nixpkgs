@@ -11466,7 +11466,9 @@ in
 
   itk = callPackage ../development/libraries/itk { };
 
-  jasper = callPackage ../development/libraries/jasper { };
+  inherit (callPackages ../development/libraries/jasper { })
+    jasper
+    jasper_1_900;
 
   jama = callPackage ../development/libraries/jama { };
 
@@ -15475,11 +15477,11 @@ in
   bridge-utils = callPackage ../os-specific/linux/bridge-utils { };
 
   busybox = callPackage ../os-specific/linux/busybox { };
-  busybox-sandbox-shell = callPackage ../os-specific/linux/busybox/sandbox-shell.nix { 
+  busybox-sandbox-shell = callPackage ../os-specific/linux/busybox/sandbox-shell.nix {
     # musl roadmap has RISC-V support projected for 1.1.20
     busybox = if !stdenv.hostPlatform.isRiscV && stdenv.hostPlatform.libc != "bionic"
               then pkgsStatic.busybox
-              else busybox; 
+              else busybox;
   };
 
   cachefilesd = callPackage ../os-specific/linux/cachefilesd { };
@@ -24964,5 +24966,7 @@ in
   nix-store-gcs-proxy = callPackage ../tools/nix/nix-store-gcs-proxy {};
 
   wifi-password = callPackage ../os-specific/darwin/wifi-password {};
+
+  hiri = callPackage ../applications/networking/mailreaders/hiri {};
 
 }

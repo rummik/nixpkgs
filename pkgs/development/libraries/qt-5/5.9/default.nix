@@ -140,6 +140,8 @@ let
       qtwebsockets = callPackage ../modules/qtwebsockets.nix {};
       qtx11extras = callPackage ../modules/qtx11extras.nix {};
       qtxmlpatterns = callPackage ../modules/qtxmlpatterns.nix {};
+      qt3d = callPackage ../modules/qt3d.nix {};
+      qtgamepad = callPackage ../modules/qtgamepad.nix {};
 
       env = callPackage ../qt-env.nix {};
       full = env "qt-full-${qtbase.version}" ([
